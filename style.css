@@ -1,0 +1,124 @@
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #fddde6, #000102);
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff6f61;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: opacity 0.5s;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  cursor: pointer;
+  perspective: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s, height 0.3s;
+}
+
+.card.medium {
+  width: 80px;
+  height: 80px;
+}
+
+.card.hard {
+  width: 70px;
+  height: 70px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+
+.card-front {
+  background-color: #ffcc70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffa07a;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #ff7f50;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#message {
+  font-size: 24px;
+  color: #00cc66;
+  margin-top: 20px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 70px !important;
+    height: 70px !important;
+  }
+}
+
+#timer {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
